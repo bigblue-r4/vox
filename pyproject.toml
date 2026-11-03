@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vox-tone"
+version = "0.2.0"
+description = "Procedural voice-color presets with an intelligibility guard"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+ authors = [{ name = "christopher howard" }]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+vox = "vox.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vox*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

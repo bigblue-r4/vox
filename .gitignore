@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Generated runs are large and reproducible from their logged seeds.
+runs/
+
+# harness scratch directory
+.cloud-attachments/
+*.wav.bak

@@ -1,0 +1,52 @@
+{
+  "name": "quartz-56",
+  "created_at": "2026-11-03T19:40:07+00:00",
+  "tool_version": "0.2.0",
+  "seed": {
+    "master": 404,
+    "index": 3
+  },
+  "attempt": 1,
+  "source": "granular-cloud",
+  "signature": "velvet",
+  "params": {
+    "pitch_semitones": -0.9151,
+    "formant_shift": 0.9845,
+    "low_shelf_db": 4.9864,
+    "high_shelf_db": -1.8388,
+    "peak_freq": 1382.538,
+    "peak_db": 0.3637,
+    "peak_q": 0.9988,
+    "drive": 0.0,
+    "ring_amount": 0.0603,
+    "ring_hz": 480.6524,
+    "tremolo_hz": 1.3451,
+    "tremolo_depth": 0.139,
+    "comb_delay_ms": 6.4535,
+    "comb_mix": 0.1573,
+    "crush_bits": 15.0,
+    "noise_mix": 0.0189,
+    "output_gain_db": 0.0968
+  },
+  "guard": {
+    "sti": 0.850651,
+    "est_wer": 0.024558,
+    "threshold": 0.05,
+    "passes": true
+  },
+  "phrase": "the quick brown fox jumps over the lazy dog",
+  "files": {
+    "sample": "sample.wav",
+    "audition": "audition.wav"
+  },
+  "hashes": {
+    "sample_sha256": "ed92c71230a3837dce17894a34a0aa7ec37dbf5b8da23ea28282cc2e6a5689ec",
+    "audition_sha256": "52f176fcc4a681e8e00bc15ec63d9be90f48ddf4e4f99a9ae2126f79c24f9087"
+  },
+  "audio": {
+    "sample_duration_s": 2.603,
+    "audition_duration_s": 3.24,
+    "sample_peak_dbfs": -1.18,
+    "audition_rms_dbfs": -20.17
+  }
+}

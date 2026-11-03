@@ -1,0 +1,52 @@
+{
+  "name": "ivory-18",
+  "created_at": "2026-11-03T19:40:07+00:00",
+  "tool_version": "0.2.0",
+  "seed": {
+    "master": 404,
+    "index": 6
+  },
+  "attempt": 1,
+  "source": "fm-bleep",
+  "signature": "close",
+  "params": {
+    "pitch_semitones": -1.8079,
+    "formant_shift": 0.9308,
+    "low_shelf_db": 4.178,
+    "high_shelf_db": 0.9831,
+    "peak_freq": 771.5021,
+    "peak_db": 0.5164,
+    "peak_q": 1.3013,
+    "drive": 0.0773,
+    "ring_amount": 0.0594,
+    "ring_hz": 335.6525,
+    "tremolo_hz": 2.4918,
+    "tremolo_depth": 0.0399,
+    "comb_delay_ms": 11.3421,
+    "comb_mix": 0.0,
+    "crush_bits": 14.0,
+    "noise_mix": 0.0059,
+    "output_gain_db": 0.4263
+  },
+  "guard": {
+    "sti": 0.847669,
+    "est_wer": 0.02532,
+    "threshold": 0.05,
+    "passes": true
+  },
+  "phrase": "the quick brown fox jumps over the lazy dog",
+  "files": {
+    "sample": "sample.wav",
+    "audition": "audition.wav"
+  },
+  "hashes": {
+    "sample_sha256": "3be38981ec5666155b01be5201918c8a24cd3535c5aaf8730bc5997c78ab4ad6",
+    "audition_sha256": "9c53815d75913f7ae12eb11ba632de622561b96c4ff3a6b131f49899497ce713"
+  },
+  "audio": {
+    "sample_duration_s": 2.217,
+    "audition_duration_s": 3.24,
+    "sample_peak_dbfs": -1.18,
+    "audition_rms_dbfs": -20.17
+  }
+}

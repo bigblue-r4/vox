@@ -1,0 +1,52 @@
+{
+  "name": "harbor-02",
+  "created_at": "2026-11-03T19:40:07+00:00",
+  "tool_version": "0.2.0",
+  "seed": {
+    "master": 404,
+    "index": 5
+  },
+  "attempt": 1,
+  "source": "additive-pad",
+  "signature": "close",
+  "params": {
+    "pitch_semitones": -2.7094,
+    "formant_shift": 0.9899,
+    "low_shelf_db": 3.4903,
+    "high_shelf_db": 1.1227,
+    "peak_freq": 755.0213,
+    "peak_db": 1.1341,
+    "peak_q": 0.9453,
+    "drive": 0.0,
+    "ring_amount": 0.0,
+    "ring_hz": 462.4238,
+    "tremolo_hz": 2.5066,
+    "tremolo_depth": 0.0241,
+    "comb_delay_ms": 11.2646,
+    "comb_mix": 0.112,
+    "crush_bits": 15.0,
+    "noise_mix": 0.0,
+    "output_gain_db": -1.1276
+  },
+  "guard": {
+    "sti": 0.856398,
+    "est_wer": 0.023154,
+    "threshold": 0.05,
+    "passes": true
+  },
+  "phrase": "the quick brown fox jumps over the lazy dog",
+  "files": {
+    "sample": "sample.wav",
+    "audition": "audition.wav"
+  },
+  "hashes": {
+    "sample_sha256": "9a37b1e1256c68b903fd0fe8d995948eb5af362383eb484d47da652140cf6570",
+    "audition_sha256": "1a8ac04f1049ef4091fb18f2d8ec274ddaa0446c345d435bd4556c64bac9e416"
+  },
+  "audio": {
+    "sample_duration_s": 2.507,
+    "audition_duration_s": 3.24,
+    "sample_peak_dbfs": -1.18,
+    "audition_rms_dbfs": -21.19
+  }
+}

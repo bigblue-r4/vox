@@ -1,0 +1,28 @@
+{
+  "schema": "vox.preset/1",
+  "name": "glasshouse",
+  "origin": "designed",
+  "signature": "hand-designed",
+  "source": null,
+  "seed": null,
+  "notes": "Hand-designed: lifted formants, glassy 5 kHz presence, faint ring for edge.",
+  "params": {
+    "pitch_semitones": 1.0,
+    "formant_shift": 1.06,
+    "low_shelf_db": -1.0,
+    "high_shelf_db": 3.0,
+    "peak_freq": 5200.0,
+    "peak_db": 3.0,
+    "peak_q": 1.2,
+    "drive": 0.14,
+    "ring_amount": 0.05,
+    "ring_hz": 560.0,
+    "tremolo_hz": 1.0,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.0,
+    "comb_mix": 0.0,
+    "crush_bits": 16.0,
+    "noise_mix": 0.025,
+    "output_gain_db": 0.0
+  }
+}

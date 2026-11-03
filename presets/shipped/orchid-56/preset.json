@@ -1,0 +1,31 @@
+{
+  "schema": "vox.preset/1",
+  "name": "orchid-56",
+  "origin": "generated",
+  "signature": "close",
+  "source": "pulse-train",
+  "seed": {
+    "master": 404,
+    "index": 4
+  },
+  "notes": "generated \u00b7 click and pulse trains through a resonant band",
+  "params": {
+    "pitch_semitones": -2.2111,
+    "formant_shift": 0.948,
+    "low_shelf_db": 2.7269,
+    "high_shelf_db": 0.3953,
+    "peak_freq": 1610.7694,
+    "peak_db": 1.5606,
+    "peak_q": 1.0429,
+    "drive": 0.0,
+    "ring_amount": 0.044,
+    "ring_hz": 352.0316,
+    "tremolo_hz": 1.2268,
+    "tremolo_depth": 0.1183,
+    "comb_delay_ms": 4.6264,
+    "comb_mix": 0.0488,
+    "crush_bits": 15.0,
+    "noise_mix": 0.0,
+    "output_gain_db": 1.699
+  }
+}

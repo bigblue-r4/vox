@@ -1,0 +1,31 @@
+{
+  "schema": "vox.preset/1",
+  "name": "solstice-30",
+  "origin": "generated",
+  "signature": "bright",
+  "source": "fm-bleep",
+  "seed": {
+    "master": 404,
+    "index": 0
+  },
+  "notes": "generated \u00b7 FM bleeps and chirps with decaying modulation index",
+  "params": {
+    "pitch_semitones": 2.8165,
+    "formant_shift": 1.0507,
+    "low_shelf_db": -0.1539,
+    "high_shelf_db": 4.2076,
+    "peak_freq": 2212.5974,
+    "peak_db": 2.104,
+    "peak_q": 0.8394,
+    "drive": 0.0,
+    "ring_amount": 0.0558,
+    "ring_hz": 118.9058,
+    "tremolo_hz": 1.9958,
+    "tremolo_depth": 0.0867,
+    "comb_delay_ms": 8.7988,
+    "comb_mix": 0.1123,
+    "crush_bits": 16.0,
+    "noise_mix": 0.0194,
+    "output_gain_db": 0.371
+  }
+}

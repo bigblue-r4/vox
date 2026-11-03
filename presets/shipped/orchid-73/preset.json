@@ -1,0 +1,31 @@
+{
+  "schema": "vox.preset/1",
+  "name": "orchid-73",
+  "origin": "generated",
+  "signature": "close",
+  "source": "additive-pad",
+  "seed": {
+    "master": 404,
+    "index": 11
+  },
+  "notes": "generated \u00b7 glassy additive pad, detuned partial stack",
+  "params": {
+    "pitch_semitones": -1.3251,
+    "formant_shift": 0.9493,
+    "low_shelf_db": 3.2194,
+    "high_shelf_db": 3.0726,
+    "peak_freq": 931.8032,
+    "peak_db": 0.0596,
+    "peak_q": 0.6427,
+    "drive": 0.0,
+    "ring_amount": 0.0442,
+    "ring_hz": 180.3179,
+    "tremolo_hz": 3.3959,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.595,
+    "comb_mix": 0.0,
+    "crush_bits": 16.0,
+    "noise_mix": 0.0165,
+    "output_gain_db": 1.4025
+  }
+}

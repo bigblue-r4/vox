@@ -1,0 +1,52 @@
+{
+  "name": "orchid-73",
+  "created_at": "2026-11-03T19:40:09+00:00",
+  "tool_version": "0.2.0",
+  "seed": {
+    "master": 404,
+    "index": 11
+  },
+  "attempt": 2,
+  "source": "additive-pad",
+  "signature": "close",
+  "params": {
+    "pitch_semitones": -1.3251,
+    "formant_shift": 0.9493,
+    "low_shelf_db": 3.2194,
+    "high_shelf_db": 3.0726,
+    "peak_freq": 931.8032,
+    "peak_db": 0.0596,
+    "peak_q": 0.6427,
+    "drive": 0.0,
+    "ring_amount": 0.0442,
+    "ring_hz": 180.3179,
+    "tremolo_hz": 3.3959,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.595,
+    "comb_mix": 0.0,
+    "crush_bits": 16.0,
+    "noise_mix": 0.0165,
+    "output_gain_db": 1.4025
+  },
+  "guard": {
+    "sti": 0.916164,
+    "est_wer": 0.012497,
+    "threshold": 0.05,
+    "passes": true
+  },
+  "phrase": "the quick brown fox jumps over the lazy dog",
+  "files": {
+    "sample": "sample.wav",
+    "audition": "audition.wav"
+  },
+  "hashes": {
+    "sample_sha256": "6502c9323287b5b966d2338fe5435408f1535af3b0549848085f3ea1d08fdb65",
+    "audition_sha256": "5eed880d56c7a4b2525f4a1d49d97ba1e254d03e6862c64241d1bdef80cb9075"
+  },
+  "audio": {
+    "sample_duration_s": 2.636,
+    "audition_duration_s": 3.24,
+    "sample_peak_dbfs": -1.18,
+    "audition_rms_dbfs": -21.27
+  }
+}

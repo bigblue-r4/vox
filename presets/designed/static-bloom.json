@@ -1,0 +1,28 @@
+{
+  "schema": "vox.preset/1",
+  "name": "static-bloom",
+  "origin": "designed",
+  "signature": "hand-designed",
+  "source": null,
+  "seed": null,
+  "notes": "Hand-designed: driven and crushed with a short comb bloom and slow tremolo.",
+  "params": {
+    "pitch_semitones": 0.0,
+    "formant_shift": 1.0,
+    "low_shelf_db": -1.5,
+    "high_shelf_db": 1.0,
+    "peak_freq": 1800.0,
+    "peak_db": -1.5,
+    "peak_q": 0.9,
+    "drive": 0.30,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 2.4,
+    "tremolo_depth": 0.12,
+    "comb_delay_ms": 7.0,
+    "comb_mix": 0.16,
+    "crush_bits": 10.0,
+    "noise_mix": 0.045,
+    "output_gain_db": 0.0
+  }
+}

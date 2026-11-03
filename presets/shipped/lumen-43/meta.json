@@ -1,0 +1,52 @@
+{
+  "name": "lumen-43",
+  "created_at": "2026-11-03T19:40:09+00:00",
+  "tool_version": "0.2.0",
+  "seed": {
+    "master": 404,
+    "index": 10
+  },
+  "attempt": 2,
+  "source": "pulse-train",
+  "signature": "smear",
+  "params": {
+    "pitch_semitones": -0.8481,
+    "formant_shift": 0.994,
+    "low_shelf_db": 0.7028,
+    "high_shelf_db": -0.1887,
+    "peak_freq": 1173.5753,
+    "peak_db": 1.2969,
+    "peak_q": 0.9415,
+    "drive": 0.0,
+    "ring_amount": 0.0,
+    "ring_hz": 282.5069,
+    "tremolo_hz": 1.6269,
+    "tremolo_depth": 0.0928,
+    "comb_delay_ms": 17.13,
+    "comb_mix": 0.2764,
+    "crush_bits": 13.0,
+    "noise_mix": 0.0116,
+    "output_gain_db": 2.4961
+  },
+  "guard": {
+    "sti": 0.908024,
+    "est_wer": 0.013596,
+    "threshold": 0.05,
+    "passes": true
+  },
+  "phrase": "the quick brown fox jumps over the lazy dog",
+  "files": {
+    "sample": "sample.wav",
+    "audition": "audition.wav"
+  },
+  "hashes": {
+    "sample_sha256": "cea81ca5c6a2b3f64267e26db0bc3c414a84b78a5218f4977bb21680648d6740",
+    "audition_sha256": "cf193ca4c7842086ac87afdcb83dfc6d6b1c0950eeb26caba3cc0b56df7476d9"
+  },
+  "audio": {
+    "sample_duration_s": 2.299,
+    "audition_duration_s": 3.24,
+    "sample_peak_dbfs": -1.18,
+    "audition_rms_dbfs": -20.74
+  }
+}

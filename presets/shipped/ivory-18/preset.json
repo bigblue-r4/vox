@@ -1,0 +1,31 @@
+{
+  "schema": "vox.preset/1",
+  "name": "ivory-18",
+  "origin": "generated",
+  "signature": "close",
+  "source": "fm-bleep",
+  "seed": {
+    "master": 404,
+    "index": 6
+  },
+  "notes": "generated \u00b7 FM bleeps and chirps with decaying modulation index",
+  "params": {
+    "pitch_semitones": -1.8079,
+    "formant_shift": 0.9308,
+    "low_shelf_db": 4.178,
+    "high_shelf_db": 0.9831,
+    "peak_freq": 771.5021,
+    "peak_db": 0.5164,
+    "peak_q": 1.3013,
+    "drive": 0.0773,
+    "ring_amount": 0.0594,
+    "ring_hz": 335.6525,
+    "tremolo_hz": 2.4918,
+    "tremolo_depth": 0.0399,
+    "comb_delay_ms": 11.3421,
+    "comb_mix": 0.0,
+    "crush_bits": 14.0,
+    "noise_mix": 0.0059,
+    "output_gain_db": 0.4263
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "vox.preset/1",
+  "name": "velvet-veil",
+  "origin": "designed",
+  "signature": "hand-designed",
+  "source": null,
+  "seed": null,
+  "notes": "Hand-designed: soft low-mid lift with a dark top, barely-there console drive.",
+  "params": {
+    "pitch_semitones": -1.0,
+    "formant_shift": 0.96,
+    "low_shelf_db": 3.5,
+    "high_shelf_db": -3.0,
+    "peak_freq": 3200.0,
+    "peak_db": 1.5,
+    "peak_q": 1.0,
+    "drive": 0.12,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 1.0,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.0,
+    "comb_mix": 0.0,
+    "crush_bits": 16.0,
+    "noise_mix": 0.02,
+    "output_gain_db": 0.0
+  }
+}

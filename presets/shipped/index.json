@@ -1,0 +1,424 @@
+{
+  "schema": "vox.shipped/1",
+  "updated_at": "2026-11-03T19:40:10+00:00",
+  "presets": [
+    {
+      "name": "orchid-73",
+      "origin": "generated",
+      "signature": "close",
+      "source": "additive-pad",
+      "params": {
+        "pitch_semitones": -1.3251,
+        "formant_shift": 0.9493,
+        "low_shelf_db": 3.2194,
+        "high_shelf_db": 3.0726,
+        "peak_freq": 931.8032,
+        "peak_db": 0.0596,
+        "peak_q": 0.6427,
+        "drive": 0.0,
+        "ring_amount": 0.0442,
+        "ring_hz": 180.3179,
+        "tremolo_hz": 3.3959,
+        "tremolo_depth": 0.0,
+        "comb_delay_ms": 8.595,
+        "comb_mix": 0.0,
+        "crush_bits": 16.0,
+        "noise_mix": 0.0165,
+        "output_gain_db": 1.4025
+      },
+      "guard": {
+        "sti": 0.9162,
+        "est_wer": 0.0125
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 11
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "orchid-73"
+    },
+    {
+      "name": "lumen-43",
+      "origin": "generated",
+      "signature": "smear",
+      "source": "pulse-train",
+      "params": {
+        "pitch_semitones": -0.8481,
+        "formant_shift": 0.994,
+        "low_shelf_db": 0.7028,
+        "high_shelf_db": -0.1887,
+        "peak_freq": 1173.5753,
+        "peak_db": 1.2969,
+        "peak_q": 0.9415,
+        "drive": 0.0,
+        "ring_amount": 0.0,
+        "ring_hz": 282.5069,
+        "tremolo_hz": 1.6269,
+        "tremolo_depth": 0.0928,
+        "comb_delay_ms": 17.13,
+        "comb_mix": 0.2764,
+        "crush_bits": 13.0,
+        "noise_mix": 0.0116,
+        "output_gain_db": 2.4961
+      },
+      "guard": {
+        "sti": 0.908,
+        "est_wer": 0.0136
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 10
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "lumen-43"
+    },
+    {
+      "name": "sable-11",
+      "origin": "generated",
+      "signature": "grit",
+      "source": "noise-sweep",
+      "params": {
+        "pitch_semitones": -0.748,
+        "formant_shift": 0.9454,
+        "low_shelf_db": 0.2695,
+        "high_shelf_db": -0.4052,
+        "peak_freq": 3245.222,
+        "peak_db": 2.3296,
+        "peak_q": 1.1358,
+        "drive": 0.2848,
+        "ring_amount": 0.0,
+        "ring_hz": 234.1346,
+        "tremolo_hz": 0.0,
+        "tremolo_depth": 0.1079,
+        "comb_delay_ms": 9.2117,
+        "comb_mix": 0.0,
+        "crush_bits": 12.0,
+        "noise_mix": 0.0091,
+        "output_gain_db": -0.6835
+      },
+      "guard": {
+        "sti": 0.8548,
+        "est_wer": 0.0235
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 1
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "sable-11"
+    },
+    {
+      "name": "quartz-56",
+      "origin": "generated",
+      "signature": "velvet",
+      "source": "granular-cloud",
+      "params": {
+        "pitch_semitones": -0.9151,
+        "formant_shift": 0.9845,
+        "low_shelf_db": 4.9864,
+        "high_shelf_db": -1.8388,
+        "peak_freq": 1382.538,
+        "peak_db": 0.3637,
+        "peak_q": 0.9988,
+        "drive": 0.0,
+        "ring_amount": 0.0603,
+        "ring_hz": 480.6524,
+        "tremolo_hz": 1.3451,
+        "tremolo_depth": 0.139,
+        "comb_delay_ms": 6.4535,
+        "comb_mix": 0.1573,
+        "crush_bits": 15.0,
+        "noise_mix": 0.0189,
+        "output_gain_db": 0.0968
+      },
+      "guard": {
+        "sti": 0.8507,
+        "est_wer": 0.0246
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 3
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "quartz-56"
+    },
+    {
+      "name": "solstice-30",
+      "origin": "generated",
+      "signature": "bright",
+      "source": "fm-bleep",
+      "params": {
+        "pitch_semitones": 2.8165,
+        "formant_shift": 1.0507,
+        "low_shelf_db": -0.1539,
+        "high_shelf_db": 4.2076,
+        "peak_freq": 2212.5974,
+        "peak_db": 2.104,
+        "peak_q": 0.8394,
+        "drive": 0.0,
+        "ring_amount": 0.0558,
+        "ring_hz": 118.9058,
+        "tremolo_hz": 1.9958,
+        "tremolo_depth": 0.0867,
+        "comb_delay_ms": 8.7988,
+        "comb_mix": 0.1123,
+        "crush_bits": 16.0,
+        "noise_mix": 0.0194,
+        "output_gain_db": 0.371
+      },
+      "guard": {
+        "sti": 0.8409,
+        "est_wer": 0.0271
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 0
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "solstice-30"
+    },
+    {
+      "name": "orchid-56",
+      "origin": "generated",
+      "signature": "close",
+      "source": "pulse-train",
+      "params": {
+        "pitch_semitones": -2.2111,
+        "formant_shift": 0.948,
+        "low_shelf_db": 2.7269,
+        "high_shelf_db": 0.3953,
+        "peak_freq": 1610.7694,
+        "peak_db": 1.5606,
+        "peak_q": 1.0429,
+        "drive": 0.0,
+        "ring_amount": 0.044,
+        "ring_hz": 352.0316,
+        "tremolo_hz": 1.2268,
+        "tremolo_depth": 0.1183,
+        "comb_delay_ms": 4.6264,
+        "comb_mix": 0.0488,
+        "crush_bits": 15.0,
+        "noise_mix": 0.0,
+        "output_gain_db": 1.699
+      },
+      "guard": {
+        "sti": 0.8619,
+        "est_wer": 0.0219
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 4
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "orchid-56"
+    },
+    {
+      "name": "harbor-02",
+      "origin": "generated",
+      "signature": "close",
+      "source": "additive-pad",
+      "params": {
+        "pitch_semitones": -2.7094,
+        "formant_shift": 0.9899,
+        "low_shelf_db": 3.4903,
+        "high_shelf_db": 1.1227,
+        "peak_freq": 755.0213,
+        "peak_db": 1.1341,
+        "peak_q": 0.9453,
+        "drive": 0.0,
+        "ring_amount": 0.0,
+        "ring_hz": 462.4238,
+        "tremolo_hz": 2.5066,
+        "tremolo_depth": 0.0241,
+        "comb_delay_ms": 11.2646,
+        "comb_mix": 0.112,
+        "crush_bits": 15.0,
+        "noise_mix": 0.0,
+        "output_gain_db": -1.1276
+      },
+      "guard": {
+        "sti": 0.8564,
+        "est_wer": 0.0232
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 5
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "harbor-02"
+    },
+    {
+      "name": "ivory-18",
+      "origin": "generated",
+      "signature": "close",
+      "source": "fm-bleep",
+      "params": {
+        "pitch_semitones": -1.8079,
+        "formant_shift": 0.9308,
+        "low_shelf_db": 4.178,
+        "high_shelf_db": 0.9831,
+        "peak_freq": 771.5021,
+        "peak_db": 0.5164,
+        "peak_q": 1.3013,
+        "drive": 0.0773,
+        "ring_amount": 0.0594,
+        "ring_hz": 335.6525,
+        "tremolo_hz": 2.4918,
+        "tremolo_depth": 0.0399,
+        "comb_delay_ms": 11.3421,
+        "comb_mix": 0.0,
+        "crush_bits": 14.0,
+        "noise_mix": 0.0059,
+        "output_gain_db": 0.4263
+      },
+      "guard": {
+        "sti": 0.8477,
+        "est_wer": 0.0253
+      },
+      "run": "runs/seed-000404",
+      "seed": {
+        "master": 404,
+        "index": 6
+      },
+      "promoted_at": "2026-11-03T19:40:10+00:00",
+      "dir": "ivory-18"
+    },
+    {
+      "name": "glasshouse",
+      "origin": "designed",
+      "signature": "hand-designed",
+      "source": null,
+      "params": {
+        "pitch_semitones": 1.0,
+        "formant_shift": 1.06,
+        "low_shelf_db": -1.0,
+        "high_shelf_db": 3.0,
+        "peak_freq": 5200.0,
+        "peak_db": 3.0,
+        "peak_q": 1.2,
+        "drive": 0.14,
+        "ring_amount": 0.05,
+        "ring_hz": 560.0,
+        "tremolo_hz": 1.0,
+        "tremolo_depth": 0.0,
+        "comb_delay_ms": 8.0,
+        "comb_mix": 0.0,
+        "crush_bits": 16.0,
+        "noise_mix": 0.025,
+        "output_gain_db": 0.0
+      },
+      "guard": null,
+      "run": null,
+      "seed": null,
+      "promoted_at": null,
+      "dir": "../designed/glasshouse.json"
+    },
+    {
+      "name": "static-bloom",
+      "origin": "designed",
+      "signature": "hand-designed",
+      "source": null,
+      "params": {
+        "pitch_semitones": 0.0,
+        "formant_shift": 1.0,
+        "low_shelf_db": -1.5,
+        "high_shelf_db": 1.0,
+        "peak_freq": 1800.0,
+        "peak_db": -1.5,
+        "peak_q": 0.9,
+        "drive": 0.3,
+        "ring_amount": 0.0,
+        "ring_hz": 250.0,
+        "tremolo_hz": 2.4,
+        "tremolo_depth": 0.12,
+        "comb_delay_ms": 7.0,
+        "comb_mix": 0.16,
+        "crush_bits": 10.0,
+        "noise_mix": 0.045,
+        "output_gain_db": 0.0
+      },
+      "guard": null,
+      "run": null,
+      "seed": null,
+      "promoted_at": null,
+      "dir": "../designed/static-bloom.json"
+    },
+    {
+      "name": "understudy",
+      "origin": "designed",
+      "signature": "hand-designed",
+      "source": null,
+      "params": {
+        "pitch_semitones": -1.4,
+        "formant_shift": 0.96,
+        "low_shelf_db": 3.5,
+        "high_shelf_db": -3.5,
+        "peak_freq": 900.0,
+        "peak_db": 2.0,
+        "peak_q": 0.8,
+        "drive": 0.06,
+        "ring_amount": 0.0,
+        "ring_hz": 250.0,
+        "tremolo_hz": 3.1,
+        "tremolo_depth": 0.08,
+        "comb_delay_ms": 11.0,
+        "comb_mix": 0.14,
+        "crush_bits": 16.0,
+        "noise_mix": 0.012,
+        "output_gain_db": 0.0
+      },
+      "guard": null,
+      "run": null,
+      "seed": null,
+      "promoted_at": null,
+      "dir": "../designed/understudy.json"
+    },
+    {
+      "name": "velvet-veil",
+      "origin": "designed",
+      "signature": "hand-designed",
+      "source": null,
+      "params": {
+        "pitch_semitones": -1.0,
+        "formant_shift": 0.96,
+        "low_shelf_db": 3.5,
+        "high_shelf_db": -3.0,
+        "peak_freq": 3200.0,
+        "peak_db": 1.5,
+        "peak_q": 1.0,
+        "drive": 0.12,
+        "ring_amount": 0.0,
+        "ring_hz": 250.0,
+        "tremolo_hz": 1.0,
+        "tremolo_depth": 0.0,
+        "comb_delay_ms": 8.0,
+        "comb_mix": 0.0,
+        "crush_bits": 16.0,
+        "noise_mix": 0.02,
+        "output_gain_db": 0.0
+      },
+      "guard": null,
+      "run": null,
+      "seed": null,
+      "promoted_at": null,
+      "dir": "../designed/velvet-veil.json"
+    }
+  ],
+  "tool_version": "0.2.0",
+  "target": {
+    "min": 6,
+    "max": 8
+  },
+  "counts": {
+    "generated": 8,
+    "designed": 4,
+    "total": 12
+  }
+}

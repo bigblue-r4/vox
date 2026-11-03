@@ -1,0 +1,28 @@
+{
+  "schema": "vox.preset/1",
+  "name": "understudy",
+  "origin": "designed",
+  "signature": "hand-designed",
+  "source": null,
+  "seed": null,
+  "notes": "Hand-designed: low, close and slightly behind a glass — body, comb, no top.",
+  "params": {
+    "pitch_semitones": -1.4,
+    "formant_shift": 0.96,
+    "low_shelf_db": 3.5,
+    "high_shelf_db": -3.5,
+    "peak_freq": 900.0,
+    "peak_db": 2.0,
+    "peak_q": 0.8,
+    "drive": 0.06,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 3.1,
+    "tremolo_depth": 0.08,
+    "comb_delay_ms": 11.0,
+    "comb_mix": 0.14,
+    "crush_bits": 16.0,
+    "noise_mix": 0.012,
+    "output_gain_db": 0.0
+  }
+}
