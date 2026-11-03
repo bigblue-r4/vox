@@ -1,5 +1,7 @@
 # vox
 
+[![ci](https://github.com/bigblue-r4/vox/actions/workflows/ci.yml/badge.svg)](https://github.com/bigblue-r4/vox/actions/workflows/ci.yml)
+
 Procedural voice-colour presets with a measured intelligibility guard.
 
 `vox` builds "colours" for a voice: a small preset of pitch, formant, EQ,
@@ -246,6 +248,10 @@ six sources (determinism, level, distinctness), preset schema and bounded
 draws, guard behaviour (invariance to gain/delay, refusal of destructive
 chains, WER monotonicity in noise), run generation and reproducibility,
 promotion, and the tagging server over real HTTP.
+
+CI (`.github/workflows/ci.yml`) runs the suite on Python 3.10 and 3.12, plus a
+pipeline job that generates 12 presets from seed 404, prints the guard numbers,
+proves the run rebuilds from its seeds, and uploads the run as an artifact.
 
 ## Layout
 

@@ -1,0 +1,75 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: tests (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Test suite
+        run: python -m pytest -q
+
+      - name: Validate shipped and designed presets
+        run: python -m vox.cli preset validate
+
+  pipeline:
+    name: generate -> verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      # The guard must refuse-and-regenerate on its own, so this only checks
+      # that a fixed seed still yields a complete, passing run.
+      - name: Generate 12 presets from a fixed seed
+        run: python -m vox.cli generate --count 12 --seed 404 --out runs/ci
+
+      - name: Report guard numbers
+        run: python -m vox.cli report runs/ci/seed-000404
+
+      - name: Prove the run rebuilds from its seeds
+        run: python -m vox.cli verify runs/ci/seed-000404
+
+      - name: Shipped-set status against the 6-8 target
+        run: python -m vox.cli status
+
+      - name: Upload the run
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-seed-404
+          path: runs/ci
+          retention-days: 14
