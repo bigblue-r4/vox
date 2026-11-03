@@ -241,7 +241,7 @@ All four designed presets and every generated preset pass the guard.
 .venv/bin/python -m pytest
 ```
 
-77 tests: DSP primitives (STFT round-trip, WAV IO, resampling, effects), all
+78 tests: DSP primitives (STFT round-trip, WAV IO, resampling, effects), all
 six sources (determinism, level, distinctness), preset schema and bounded
 draws, guard behaviour (invariance to gain/delay, refusal of destructive
 chains, WER monotonicity in noise), run generation and reproducibility,
