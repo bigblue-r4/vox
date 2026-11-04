@@ -8,29 +8,33 @@
   },
   "attempt": 1,
   "source": "pulse-train",
-  "signature": "close",
+  "signature": "static",
   "params": {
-    "pitch_semitones": -2.2111,
-    "formant_shift": 0.948,
-    "low_shelf_db": 2.7269,
-    "high_shelf_db": 0.3953,
-    "peak_freq": 1610.7694,
-    "peak_db": 1.5606,
-    "peak_q": 1.0429,
-    "drive": 0.0,
-    "ring_amount": 0.044,
-    "ring_hz": 352.0316,
-    "tremolo_hz": 1.2268,
-    "tremolo_depth": 0.1183,
-    "comb_delay_ms": 4.6264,
-    "comb_mix": 0.0488,
+    "pitch_semitones": -1.0,
+    "formant_shift": 1.02,
+    "low_shelf_db": -4.0,
+    "high_shelf_db": -7.0,
+    "peak_freq": 1600.0,
+    "peak_db": 2.2,
+    "peak_q": 1.6,
+    "drive": 0.05,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 1.0,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.0,
+    "comb_mix": 0.0,
     "crush_bits": 15.0,
-    "noise_mix": 0.0,
-    "output_gain_db": 1.699
+    "hardness": 0.0,
+    "shimmer": 0.0,
+    "shimmer_hz": 6.5,
+    "noise_mix": 0.01,
+    "noise_colour": 0.5,
+    "output_gain_db": 0.0
   },
   "guard": {
-    "sti": 0.861868,
-    "est_wer": 0.021889,
+    "sti": 0.797705,
+    "est_wer": 0.042051,
     "threshold": 0.05,
     "passes": true
   },
@@ -41,12 +45,15 @@
   },
   "hashes": {
     "sample_sha256": "191622f7d5191b373ab3c1810828d6db008b541622d7b543ef8a72c753551c73",
-    "audition_sha256": "99384bd8c918c51f6b12b2ab5d7556a84083b5a8ac9dd263bc0d7ca29546aec4"
+    "audition_sha256": "77c19f7d2648da42067e6244e684f66e3cc45582ec7ff9f0042ff65bc6c366b1"
   },
   "audio": {
     "sample_duration_s": 2.729,
     "audition_duration_s": 3.24,
     "sample_peak_dbfs": -1.18,
-    "audition_rms_dbfs": -20.87
-  }
+    "audition_rms_dbfs": -20.17
+  },
+  "character": "telephone band: both shelves cut hard, 1.6 kHz resonance, boxed",
+  "curated_at": "2026-11-04T04:58:27+00:00",
+  "origin": "curated"
 }

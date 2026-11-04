@@ -10,27 +10,31 @@
   "source": "granular-cloud",
   "signature": "velvet",
   "params": {
-    "pitch_semitones": -0.9151,
-    "formant_shift": 0.9845,
-    "low_shelf_db": 4.9864,
-    "high_shelf_db": -1.8388,
-    "peak_freq": 1382.538,
-    "peak_db": 0.3637,
-    "peak_q": 0.9988,
-    "drive": 0.0,
-    "ring_amount": 0.0603,
-    "ring_hz": 480.6524,
-    "tremolo_hz": 1.3451,
-    "tremolo_depth": 0.139,
-    "comb_delay_ms": 6.4535,
-    "comb_mix": 0.1573,
+    "pitch_semitones": -1.5,
+    "formant_shift": 0.97,
+    "low_shelf_db": 4.0,
+    "high_shelf_db": -4.0,
+    "peak_freq": 700.0,
+    "peak_db": 0.5,
+    "peak_q": 1.0,
+    "drive": 0.06,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 1.0,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 6.5,
+    "comb_mix": 0.15,
     "crush_bits": 15.0,
-    "noise_mix": 0.0189,
-    "output_gain_db": 0.0968
+    "hardness": 0.0,
+    "shimmer": 0.0,
+    "shimmer_hz": 6.5,
+    "noise_mix": 0.02,
+    "noise_colour": 0.2,
+    "output_gain_db": 0.0
   },
   "guard": {
-    "sti": 0.850651,
-    "est_wer": 0.024558,
+    "sti": 0.801896,
+    "est_wer": 0.040314,
     "threshold": 0.05,
     "passes": true
   },
@@ -41,12 +45,15 @@
   },
   "hashes": {
     "sample_sha256": "ed92c71230a3837dce17894a34a0aa7ec37dbf5b8da23ea28282cc2e6a5689ec",
-    "audition_sha256": "52f176fcc4a681e8e00bc15ec63d9be90f48ddf4e4f99a9ae2126f79c24f9087"
+    "audition_sha256": "431f34dc970aa49570bd85b0710359597f6c6dce6c2f78ac6f7b2d995c7f8b13"
   },
   "audio": {
     "sample_duration_s": 2.603,
     "audition_duration_s": 3.24,
     "sample_peak_dbfs": -1.18,
     "audition_rms_dbfs": -20.17
-  }
+  },
+  "character": "velvet: round low-mid, top rolled off, short comb bloom, no edge",
+  "curated_at": "2026-11-04T04:58:27+00:00",
+  "origin": "curated"
 }

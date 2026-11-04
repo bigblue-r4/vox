@@ -110,6 +110,37 @@ def test_noise_bed_reduces_band_snr(phrase):
     assert min(b.snr_db for b in noisy.bands) < min(b.snr_db for b in quiet.bands)
 
 
+def test_shimmer_passes_at_full_amount(phrase):
+    a = assess_with(phrase, shimmer=0.35, shimmer_hz=10.0)
+    assert a.passes, a.summary()
+
+
+def test_hardness_passes_to_the_bound_and_is_refused_past_it(phrase):
+    assert assess_with(phrase, hardness=0.6).passes
+    assert not assess_with(phrase, hardness=0.9).passes
+
+
+def test_bright_noise_texture_passes_but_a_noise_wash_is_refused(phrase):
+    a = assess_with(phrase, noise_mix=0.14, noise_colour=1.0, hardness=0.4)
+    assert a.passes, a.summary()
+    assert not assess_with(phrase, noise_mix=1.0, noise_colour=1.0).passes
+
+
+def test_character_stages_are_not_silently_skipped(phrase):
+    base = dsp.loudness_match(color.render(phrase, presets.NEUTRAL), phrase)
+    shim = dsp.loudness_match(
+        color.render(phrase, dict(presets.NEUTRAL, shimmer=0.25, shimmer_hz=9.0)), phrase
+    )
+    hiss = dsp.loudness_match(
+        color.render(phrase, dict(presets.NEUTRAL, noise_mix=0.14, noise_colour=1.0)), phrase
+    )
+    hard = dsp.loudness_match(
+        color.render(phrase, dict(presets.NEUTRAL, hardness=0.5)), phrase
+    )
+    for name, out in (("shimmer", shim), ("hiss", hiss), ("hardness", hard)):
+        assert dsp.rms(out - base) > 0.002, f"{name} did not change the signal"
+
+
 def test_too_short_raises():
     with pytest.raises(ValueError):
         ig.assess(np.zeros(10), np.zeros(10))

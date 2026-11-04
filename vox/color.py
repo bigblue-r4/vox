@@ -5,8 +5,10 @@ Chain order is fixed and documented:
     pitch shift (phase vocoder + resample)
       -> formant shift (cepstral envelope warp)
       -> EQ (STFT shelving + bell)
-      -> drive -> ring mod -> tremolo -> comb
-      -> bit crush -> noise bed -> output gain -> peak limit
+      -> drive -> ring mod -> tremolo -> comb -> bit crush
+      -> hardness (asymmetric presence-band saturation)
+      -> shimmer (octave-up, fast-AM presence layer)
+      -> noise bed -> output gain -> peak limit
 
 Pitch is shifted by time-stretching at rate r and playing back at 1/r, which
 moves formants with pitch (the physical "chipmunk" behaviour) and is then
@@ -110,6 +112,56 @@ def eq_gain(freqs, params: dict) -> np.ndarray:
 
 
 # --------------------------------------------------------------------------
+# character
+# --------------------------------------------------------------------------
+
+
+def hardness_stage(x, amount: float, sr: int = SR) -> np.ndarray:
+    """Add a bitten, HF-forward edge.
+
+    Only the presence band (above ~1.5 kHz) is saturated, and asymmetrically,
+    so the vowel body and fundamental stay clean while consonants and
+    sibilants pick up odd *and* even harmonics. That reads as hardness rather
+    than as the broadband fuzz of ``drive``.
+    """
+    x = np.asarray(x, dtype=float)
+    if amount <= 0.005:
+        return x.copy()
+    pres = x - dsp.lowpass_fft(x, 1500.0, sr)
+    level = dsp.peak(pres)
+    if level < 1e-9:
+        return x.copy()
+    k = 1.0 + 7.0 * float(amount)
+    bias = 0.35 * float(amount)
+    shaped = np.tanh(k * (pres / level) + bias) - np.tanh(bias)
+    shaped = shaped * (level / max(float(np.tanh(k + bias)), 1e-9))
+    return x + 0.9 * float(amount) * (shaped - pres)
+
+
+def shimmer_layer(x, amount: float, rate_hz: float, sr: int = SR) -> np.ndarray:
+    """Glassy shimmer: an octave-up, fast-modulated copy of the presence band.
+
+    The band is taken from 1.2-5 kHz, so transposing it up an octave lands in
+    2.4-10 kHz: audible at 24 kHz, unlike an octave above the air band. The
+    fast shallow AM is what separates shimmer from a slow tremolo.
+    """
+    x = np.asarray(x, dtype=float)
+    if amount <= 0.005:
+        return x.copy()
+    band = dsp.lowpass_fft(x, 5000.0, sr) - dsp.lowpass_fft(x, 1200.0, sr)
+    level = dsp.rms(band)
+    if level < 1e-9:
+        return x.copy()
+    up = shift_pitch(band, 12.0, sr)
+    if up.size < x.size:
+        up = np.pad(up, (0, x.size - up.size))
+    up = up[: x.size]
+    up = dsp.tremolo(up, rate_hz, 0.8, sr)
+    up = up * (level / max(dsp.rms(up), 1e-9))
+    return x + float(amount) * up
+
+
+# --------------------------------------------------------------------------
 # chain
 # --------------------------------------------------------------------------
 
@@ -139,8 +191,14 @@ def render(x, preset, sr: int = SR, rng=None) -> np.ndarray:
         y = dsp.comb(y, params["comb_delay_ms"], params["comb_mix"], 0.3, sr)
     if params["crush_bits"] < 15.5:
         y = dsp.crush(y, int(round(params["crush_bits"])))
+    if params.get("hardness", 0.0) > 0.005:
+        y = hardness_stage(y, params["hardness"], sr)
+    if params.get("shimmer", 0.0) > 0.005:
+        y = shimmer_layer(y, params["shimmer"], params["shimmer_hz"], sr)
     if params["noise_mix"] > 0.002:
-        y = y + dsp.noise_bed(y.size, params["noise_mix"], sr, rng)
+        y = y + dsp.noise_bed(
+            y.size, params["noise_mix"], sr, rng, params.get("noise_colour", 0.5)
+        )
 
     y = y * float(dsp.db_to_gain(params["output_gain_db"]))
     return dsp.peak_limit(y)

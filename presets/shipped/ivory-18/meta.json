@@ -8,29 +8,33 @@
   },
   "attempt": 1,
   "source": "fm-bleep",
-  "signature": "close",
+  "signature": "hiss",
   "params": {
-    "pitch_semitones": -1.8079,
-    "formant_shift": 0.9308,
-    "low_shelf_db": 4.178,
-    "high_shelf_db": 0.9831,
-    "peak_freq": 771.5021,
-    "peak_db": 0.5164,
-    "peak_q": 1.3013,
-    "drive": 0.0773,
-    "ring_amount": 0.0594,
-    "ring_hz": 335.6525,
-    "tremolo_hz": 2.4918,
-    "tremolo_depth": 0.0399,
-    "comb_delay_ms": 11.3421,
+    "pitch_semitones": -1.2,
+    "formant_shift": 0.97,
+    "low_shelf_db": 1.5,
+    "high_shelf_db": 2.5,
+    "peak_freq": 3000.0,
+    "peak_db": 1.0,
+    "peak_q": 1.0,
+    "drive": 0.1,
+    "ring_amount": 0.0,
+    "ring_hz": 250.0,
+    "tremolo_hz": 1.0,
+    "tremolo_depth": 0.0,
+    "comb_delay_ms": 8.0,
     "comb_mix": 0.0,
-    "crush_bits": 14.0,
-    "noise_mix": 0.0059,
-    "output_gain_db": 0.4263
+    "crush_bits": 13.0,
+    "hardness": 0.42,
+    "shimmer": 0.05,
+    "shimmer_hz": 7.0,
+    "noise_mix": 0.14,
+    "noise_colour": 0.95,
+    "output_gain_db": 0.0
   },
   "guard": {
-    "sti": 0.847669,
-    "est_wer": 0.02532,
+    "sti": 0.884218,
+    "est_wer": 0.01739,
     "threshold": 0.05,
     "passes": true
   },
@@ -41,12 +45,15 @@
   },
   "hashes": {
     "sample_sha256": "3be38981ec5666155b01be5201918c8a24cd3535c5aaf8730bc5997c78ab4ad6",
-    "audition_sha256": "9c53815d75913f7ae12eb11ba632de622561b96c4ff3a6b131f49899497ce713"
+    "audition_sha256": "b95b5300c00165a59f712ccbdb615afd54db230ddb6020d54550d4e204d9c5be"
   },
   "audio": {
     "sample_duration_s": 2.217,
     "audition_duration_s": 3.24,
     "sample_peak_dbfs": -1.18,
     "audition_rms_dbfs": -20.17
-  }
+  },
+  "character": "white-noise texture with a hard edge: bright hiss bed, 13-bit crush, saturated presence",
+  "curated_at": "2026-11-04T04:58:27+00:00",
+  "origin": "curated"
 }

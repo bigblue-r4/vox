@@ -37,8 +37,13 @@ def _write_index(shipped_dir: Path, index: dict) -> Path:
     index["updated_at"] = _now()
     index["tool_version"] = __version__
     index["target"] = {"min": TARGET_MIN, "max": TARGET_MAX}
+    # "curated" presets are generated draws that were tuned by ear before
+    # shipping; they count against the same 6-8 target as raw generated ones.
     index["counts"] = {
-        "generated": sum(1 for p in index["presets"] if p["origin"] == "generated"),
+        "generated": sum(
+            1 for p in index["presets"] if p["origin"] in ("generated", "curated")
+        ),
+        "curated": sum(1 for p in index["presets"] if p["origin"] == "curated"),
         "designed": sum(1 for p in index["presets"] if p["origin"] == "designed"),
         "total": len(index["presets"]),
     }
@@ -167,7 +172,10 @@ def register_designed(designed_dir: str | Path = DESIGNED_DIR,
 
 def status(shipped_dir: str | Path = SHIPPED_DIR) -> dict:
     index = _load_index(Path(shipped_dir))
-    generated = [p for p in index["presets"] if p["origin"] == "generated"]
+    generated = [
+        p for p in index["presets"] if p["origin"] in ("generated", "curated")
+    ]
+    curated = [p for p in index["presets"] if p["origin"] == "curated"]
     designed = [p for p in index["presets"] if p["origin"] == "designed"]
     if len(generated) < TARGET_MIN:
         state = "under"
@@ -177,6 +185,7 @@ def status(shipped_dir: str | Path = SHIPPED_DIR) -> dict:
         state = "ok"
     return {
         "generated": len(generated),
+        "curated": len(curated),
         "designed": len(designed),
         "total": len(index["presets"]),
         "target_min": TARGET_MIN,

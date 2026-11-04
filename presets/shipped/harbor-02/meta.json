@@ -10,27 +10,31 @@
   "source": "additive-pad",
   "signature": "close",
   "params": {
-    "pitch_semitones": -2.7094,
-    "formant_shift": 0.9899,
-    "low_shelf_db": 3.4903,
-    "high_shelf_db": 1.1227,
-    "peak_freq": 755.0213,
-    "peak_db": 1.1341,
-    "peak_q": 0.9453,
+    "pitch_semitones": -2.6,
+    "formant_shift": 0.94,
+    "low_shelf_db": 4.0,
+    "high_shelf_db": 1.0,
+    "peak_freq": 750.0,
+    "peak_db": 1.0,
+    "peak_q": 1.0,
     "drive": 0.0,
     "ring_amount": 0.0,
-    "ring_hz": 462.4238,
-    "tremolo_hz": 2.5066,
-    "tremolo_depth": 0.0241,
-    "comb_delay_ms": 11.2646,
-    "comb_mix": 0.112,
+    "ring_hz": 250.0,
+    "tremolo_hz": 2.5,
+    "tremolo_depth": 0.03,
+    "comb_delay_ms": 11.0,
+    "comb_mix": 0.1,
     "crush_bits": 15.0,
-    "noise_mix": 0.0,
-    "output_gain_db": -1.1276
+    "hardness": 0.0,
+    "shimmer": 0.0,
+    "shimmer_hz": 6.5,
+    "noise_mix": 0.02,
+    "noise_colour": 0.35,
+    "output_gain_db": 0.0
   },
   "guard": {
-    "sti": 0.856398,
-    "est_wer": 0.023154,
+    "sti": 0.825838,
+    "est_wer": 0.031636,
     "threshold": 0.05,
     "passes": true
   },
@@ -41,12 +45,15 @@
   },
   "hashes": {
     "sample_sha256": "9a37b1e1256c68b903fd0fe8d995948eb5af362383eb484d47da652140cf6570",
-    "audition_sha256": "1a8ac04f1049ef4091fb18f2d8ec274ddaa0446c345d435bd4556c64bac9e416"
+    "audition_sha256": "5abe8bb5d984b1aff755c0f784f9e78426f80dc12ea0e282736a980b4485da15"
   },
   "audio": {
     "sample_duration_s": 2.507,
     "audition_duration_s": 3.24,
     "sample_peak_dbfs": -1.18,
-    "audition_rms_dbfs": -21.19
-  }
+    "audition_rms_dbfs": -20.17
+  },
+  "character": "close-mic intimacy: chesty low shelf, short room comb, dry",
+  "curated_at": "2026-11-04T04:58:27+00:00",
+  "origin": "curated"
 }

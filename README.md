@@ -73,8 +73,10 @@ seed, and a complete parameter set. The render chain is fixed:
 pitch shift (phase vocoder stretch + resample)
   -> formant shift (cepstral spectral-envelope warp)
   -> EQ (STFT low shelf / bell / high shelf)
-  -> drive -> ring mod -> tremolo -> comb
-  -> bit crush -> noise bed -> output gain -> peak limit
+  -> drive -> ring mod -> tremolo -> comb -> bit crush
+  -> hardness (asymmetric presence-band saturation)
+  -> shimmer (octave-up, fast-AM presence layer)
+  -> noise bed -> output gain -> peak limit
 ```
 
 Bounds are the *guard-passing region*, established by measuring each
@@ -94,7 +96,9 @@ parameter's effect on the estimated WER:
 | `tremolo_depth` / `tremolo_hz` | 0 … 0.38 / 0 … 8 Hz | |
 | `comb_delay_ms` / `comb_mix` | 3 … 18 ms / 0 … 0.30 | |
 | `crush_bits` | 9 … 16 | |
-| `noise_mix` | 0 … 0.06 | high-passed air bed |
+| `hardness` | 0 … 0.65 | asymmetric saturation of the presence band |
+| `shimmer` / `shimmer_hz` | 0 … 0.35 / 4 … 12 Hz | octave-up, fast-AM presence layer |
+| `noise_mix` / `noise_colour` | 0 … 0.22 / 0 … 1 | colour: dark … flat white … bright hiss |
 | `output_gain_db` | -4 … 4 | |
 
 ### Signatures
@@ -102,7 +106,13 @@ parameter's effect on the estimated WER:
 A draw picks a signature (a stylistic archetype) and then jitters the
 remaining parameters around neutral. Signatures pin their own parameters to a
 characteristic sub-range: `air`, `warm`, `glass`, `velvet`, `smear`, `shimmer`,
-`grit`, `close`, `bright`, `static`, and `wildcard`.
+`hiss`, `hard`, `grit`, `close`, `bright`, `static`, and `wildcard`.
+
+`shimmer` and `hiss` exist because the first shipped set proved the point:
+every preset was a few dB of EQ and a little comb, so they all read as one
+colour. `shimmer` drives the octave-up layer, `hiss` the noise texture and
+`hard` the presence-band saturation, which are the three stages that change the
+*kind* of sound rather than its tilt.
 
 `wildcard` is the generator's tail exploration: half of its parameters are
 pushed to the outer 25% of their range. One draw in five is a wildcard, which is
@@ -143,7 +153,11 @@ Measured behaviour (phrase synthesised by the bundled formant model):
 | mild EQ, tremolo, comb, 10-bit crush, +2 st | ≤ 1% | passes |
 | bounds-tail combo (pitch 3.4, formant 1.13, drive .38, noise .06, comb .3) | 6.0% | refused |
 | heavy stack (pitch 6, formant 1.4, drive .8, noise 1.0, −9 dB top) | 67% | refused |
-| noise bed at unity gain | 47% | refused |
+| `hardness` 0.6 | 3.8% | passes |
+| `hardness` 0.7 | 6.2% | refused |
+| `shimmer` 0.35 at 12 Hz | 0.5% | passes |
+| white noise 0.14 + `hardness` 0.4 | 1.7% | passes |
+| white noise bed at unity gain | 65% | refused |
 | pitch −9 st | 40% | refused |
 
 Example run (`--seed 404 --count 12`): 15 attempts, 3 refused (7.5%, 9.2%,
@@ -193,7 +207,7 @@ reference, and tags keep/discard with `k`/`d` or the buttons. Tags persist in
 vox serve runs/seed-000404                  # http://127.0.0.1:8765/
 vox promote runs/seed-000404 --all-kept     # promote from tags.json
 vox promote runs/seed-000404 --kept orchid-73,lumen-43
-vox status                                  # 8 generated + 4 designed (target 6-8)
+vox status                                  # 8 curated + 4 designed (target 6-8)
 ```
 
 Promotion copies the preset, both WAVs and `meta.json` into
@@ -204,24 +218,28 @@ with different parameters needs `--force`.
 ## The shipped set
 
 Target: 6–8 generated presets curated from runs, plus the 4 hand-designed ones.
-Currently 8 + 4 = 12:
+Currently 8 curated + 4 designed = 12. Each is tuned to one deliberate
+character, because the first shipped set shipped four variations of the same
+soft, close colour:
 
-| preset | origin | signature | source |
+| preset | origin | character | est WER |
 | --- | --- | --- | --- |
-| `velvet-veil` | designed | hand-designed | — |
-| `glasshouse` | designed | hand-designed | — |
-| `static-bloom` | designed | hand-designed | — |
-| `understudy` | designed | hand-designed | — |
-| `orchid-73` | generated | close | additive-pad |
-| `lumen-43` | generated | smear | pulse-train |
-| `sable-11` | generated | grit | noise-sweep |
-| `quartz-56` | generated | velvet | granular-cloud |
-| `solstice-30` | generated | bright | fm-bleep |
-| `orchid-56` | generated | close | pulse-train |
-| `harbor-02` | generated | close | additive-pad |
-| `ivory-18` | generated | close | fm-bleep |
+| `solstice-30` | curated | shimmering high halo, 9.5 Hz octave-up layer | 2.3% |
+| `ivory-18` | curated | white-noise texture with a hard edge | 1.7% |
+| `lumen-43` | curated | cavernous smear, 17 ms feedback comb | 1.2% |
+| `quartz-56` | curated | velvet: round low-mid, top rolled off | 4.0% |
+| `sable-11` | curated | grit: driven, torn, 11-bit crush | 1.6% |
+| `harbor-02` | curated | close-mic intimacy, chesty and dry | 3.2% |
+| `orchid-56` | curated | telephone band, both shelves cut hard | 4.2% |
+| `orchid-73` | curated | clean glass with a gentle sheen | 1.2% |
+| `velvet-veil` | designed | breathy veil over a low-passed voice | 3.4% |
+| `glasshouse` | designed | struck glass, resonant comb tail | 2.1% |
+| `static-bloom` | designed | broken radio: crushed, hissy, unstable | 0.8% |
+| `understudy` | designed | behind a door: top cut, thin and distant | 4.1% |
 
-All four designed presets and every generated preset pass the guard.
+All twelve pass the guard. The table is generated from
+`tools/curate_shipped.py`, which holds the character of each preset in one
+place and rewrites the presets, auditions, metadata and index together.
 
 ## CLI
 
@@ -243,11 +261,17 @@ All four designed presets and every generated preset pass the guard.
 .venv/bin/python -m pytest
 ```
 
-78 tests: DSP primitives (STFT round-trip, WAV IO, resampling, effects), all
+82 tests: DSP primitives (STFT round-trip, WAV IO, resampling, effects), all
 six sources (determinism, level, distinctness), preset schema and bounded
 draws, guard behaviour (invariance to gain/delay, refusal of destructive
-chains, WER monotonicity in noise), run generation and reproducibility,
-promotion, and the tagging server over real HTTP.
+chains, WER monotonicity in noise, the hardness/shimmer/noise-texture floors),
+run generation and reproducibility, promotion, and the tagging server over real
+HTTP.
+
+Two dev tools measure rather than guess:
+`tools/calibrate_guard.py` sweeps each parameter and prints the estimated WER
+(the bounds table above comes from it), and `tools/curate_shipped.py` writes the
+shipped characters and refuses to write any that the guard would reject.
 
 CI (`.github/workflows/ci.yml`) runs the suite on Python 3.10 and 3.12, plus a
 pipeline job that generates 12 presets from seed 404, prints the guard numbers,

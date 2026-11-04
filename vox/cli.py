@@ -100,8 +100,12 @@ def cmd_status(args) -> int:
 
     promote_mod.register_designed(args.designed, args.shipped)
     state = promote_mod.status(args.shipped)
-    print(f"generated: {state['generated']}  designed: {state['designed']}  total: {state['total']}")
-    print(f"target:    {state['target_min']}-{state['target_max']} generated presets "
+    curated = state.get("curated", 0)
+    print(
+        f"generated: {state['generated'] - curated}  curated: {curated}  "
+        f"designed: {state['designed']}  total: {state['total']}"
+    )
+    print(f"target:    {state['target_min']}-{state['target_max']} generated+curated presets "
           f"(state: {state['state']})")
     if state["names"]:
         print("shipped:   " + ", ".join(state["names"]))

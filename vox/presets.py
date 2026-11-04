@@ -40,7 +40,11 @@ PARAMS: dict[str, tuple[float, float, str]] = {
     "comb_delay_ms": (3.0, 18.0, "linear"),
     "comb_mix": (0.0, 0.30, "linear"),
     "crush_bits": (9.0, 16.0, "linear"),
-    "noise_mix": (0.0, 0.06, "linear"),
+    "hardness": (0.0, 0.65, "linear"),
+    "shimmer": (0.0, 0.35, "linear"),
+    "shimmer_hz": (4.0, 12.0, "log"),
+    "noise_mix": (0.0, 0.22, "linear"),
+    "noise_colour": (0.0, 1.0, "linear"),
     "output_gain_db": (-4.0, 4.0, "linear"),
 }
 
@@ -51,6 +55,7 @@ SIGNATURES: dict[str, dict[str, tuple[float, float]]] = {
     "air": {
         "high_shelf_db": (2.0, 7.0),
         "noise_mix": (0.015, 0.05),
+        "noise_colour": (0.55, 0.9),
         "peak_freq": (3500.0, 7000.0),
         "peak_db": (0.0, 3.0),
     },
@@ -64,6 +69,26 @@ SIGNATURES: dict[str, dict[str, tuple[float, float]]] = {
         "peak_db": (2.5, 6.0),
         "formant_shift": (1.03, 1.12),
         "high_shelf_db": (1.0, 4.0),
+        "shimmer": (0.04, 0.12),
+    },
+    "shimmer": {
+        "shimmer": (0.12, 0.30),
+        "shimmer_hz": (6.0, 11.0),
+        "high_shelf_db": (0.5, 3.5),
+        "noise_mix": (0.01, 0.04),
+        "noise_colour": (0.6, 0.95),
+    },
+    "hiss": {
+        "noise_mix": (0.07, 0.16),
+        "noise_colour": (0.7, 1.0),
+        "hardness": (0.2, 0.45),
+        "crush_bits": (11.0, 14.0),
+    },
+    "hard": {
+        "hardness": (0.25, 0.55),
+        "crush_bits": (10.0, 13.0),
+        "peak_db": (1.0, 3.0),
+        "high_shelf_db": (0.0, 3.0),
     },
     "velvet": {
         "low_shelf_db": (1.5, 5.0),
@@ -124,7 +149,11 @@ NEUTRAL: dict[str, float] = {
     "comb_delay_ms": 8.0,
     "comb_mix": 0.0,
     "crush_bits": 16.0,
+    "hardness": 0.0,
+    "shimmer": 0.0,
+    "shimmer_hz": 6.5,
     "noise_mix": 0.0,
+    "noise_colour": 0.5,
     "output_gain_db": 0.0,
 }
 
@@ -145,7 +174,11 @@ _JITTER: dict[str, float] = {
     "comb_delay_ms": 4.0,
     "comb_mix": 0.12,
     "crush_bits": 3.0,
-    "noise_mix": 0.025,
+    "hardness": 0.3,
+    "shimmer": 0.1,
+    "shimmer_hz": 0.6,  # log
+    "noise_mix": 0.03,
+    "noise_colour": 0.35,
     "output_gain_db": 2.5,
 }
 
@@ -352,8 +385,12 @@ def encode(params: dict[str, float]) -> str:
         bits.append(f"comb {p['comb_delay_ms']:.1f}ms {p['comb_mix']:.2f}")
     if p["crush_bits"] < 15.5:
         bits.append(f"crush {int(p['crush_bits'])}b")
+    if p["hardness"] > 0.02:
+        bits.append(f"hard {p['hardness']:.2f}")
+    if p["shimmer"] > 0.02:
+        bits.append(f"shim {p['shimmer']:.2f}@{p['shimmer_hz']:.1f}Hz")
     if p["noise_mix"] > 0.005:
-        bits.append(f"air {p['noise_mix']:.2f}")
+        bits.append(f"noise {p['noise_mix']:.2f}/{p['noise_colour']:.1f}")
     return " · ".join(bits)
 
 

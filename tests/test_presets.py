@@ -104,7 +104,7 @@ def test_designed_presets_are_valid():
 
 def test_shipped_presets_load_from_subdirectories():
     shipped = presets.load_dir("presets/shipped")
-    assert all(p.origin == "generated" for p in shipped)
+    assert all(p.origin in {"generated", "curated"} for p in shipped)
     assert 6 <= len(shipped) <= 8, "shipped generated set should meet the 6-8 target"
     for p in shipped:
         presets.validate(p.params)

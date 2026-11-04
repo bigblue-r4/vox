@@ -321,13 +321,27 @@ def crush(x, bits: int) -> np.ndarray:
     return np.round(x * levels) / levels
 
 
-def noise_bed(n: int, amount: float, sr: int = SR, rng=None) -> np.ndarray:
-    """High-passed decorrelated noise used as an 'air' layer."""
+def noise_bed(
+    n: int, amount: float, sr: int = SR, rng=None, colour: float = 0.5
+) -> np.ndarray:
+    """Decorrelated noise used as an air/texture layer.
+
+    ``colour`` tilts the spectrum instead of only high-passing it: ``0`` is
+    dark (about -6 dB/octave, pink-ish), ``0.5`` is flat white and ``1`` is a
+    bright hiss (about +6 dB/octave). Rumble below 120 Hz is always removed, so
+    the bed reads as texture rather than as a low-frequency rumble.
+    """
     if amount <= 0:
         return np.zeros(n)
     rng = np.random.default_rng(0) if rng is None else rng
     nz = rng.standard_normal(n)
-    nz = nz - lowpass_fft(nz, 1800.0, sr)
+    nz = nz - lowpass_fft(nz, 120.0, sr)
+    tilt = (float(min(1.0, max(0.0, colour))) - 0.5) * 12.0  # dB/octave
+    if abs(tilt) > 0.01 and n >= 8:
+        X = np.fft.rfft(nz)
+        f = np.maximum(np.fft.rfftfreq(n, 1.0 / sr), 20.0)
+        X = X * 10.0 ** (tilt * np.log2(f / 1000.0) / 20.0)
+        nz = np.fft.irfft(X, n)
     nz = normalize(nz, 1.0)
     return nz * amount
 
