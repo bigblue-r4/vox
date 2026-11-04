@@ -84,6 +84,9 @@ WORDS: dict[str, list[str]] = {
     "over": ["OW", "V", "ER"],
     "lazy": ["L", "EY", "Z", "IY"],
     "dog": ["D", "AO", "G"],
+    # a one-word answer, so turn-edge cues can be measured on the shortest
+    # thing a reply can be
+    "no": ["N", "OW"],
 }
 
 WORD_GAP_S = 0.045
